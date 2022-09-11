@@ -1,0 +1,38 @@
+﻿@model IEnumerable<MVC_Ajmera.Models.Author>
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.AuthorName)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.AuthorName)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Authorid">Edit</a> |
+                <!-- <a asp-action="Details" asp-route-id="@item.Authorid">Details</a> |-->
+                <a asp-action="Delete" asp-route-id="@item.Authorid">Delete</a>
+            </td>
+        </tr>
+        <tr>
+            <td>@Html.ActionLink("Click to Go back to Author List","Index","AuthorController")</td>
+        </tr>
+}
+    </tbody>
+</table>
